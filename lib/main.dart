@@ -19,8 +19,9 @@ class FriendlyChatApp extends StatelessWidget {
 class ChatMessage extends StatelessWidget {
   final String text;
   String _name = 'My Name';
+  final AnimationController animationController;
 
-  ChatMessage({this.text});
+  ChatMessage({this.text, this.animationController});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class ChatScreen extends StatefulWidget {
   _ChatScreenState createState() => _ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   final List<ChatMessage> _messages = [];
   final _textController = TextEditingController();
   final FocusNode _focusNode = FocusNode();
@@ -63,6 +64,10 @@ class _ChatScreenState extends State<ChatScreen> {
     _textController.clear();
     ChatMessage message = ChatMessage(
       text: text,
+      animationController: AnimationController(
+        duration: const Duration(milliseconds: 700),
+        vsync: this,
+      ),
     );
     setState(() {
       _messages.insert(0, message);
