@@ -7,7 +7,6 @@ void main() {
 }
 
 class FriendlyChatApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,9 +17,9 @@ class FriendlyChatApp extends StatelessWidget {
 }
 
 class ChatMessage extends StatelessWidget {
-
   final String text;
   String _name = 'My Name';
+
   ChatMessage({this.text});
 
   @override
@@ -50,7 +49,6 @@ class ChatMessage extends StatelessWidget {
   }
 }
 
-
 class ChatScreen extends StatefulWidget {
   @override
   _ChatScreenState createState() => _ChatScreenState();
@@ -73,7 +71,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Widget _buildTextComposer() {
-    return  Container(
+    return Container(
       margin: EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
         children: <Widget>[
@@ -81,8 +79,7 @@ class _ChatScreenState extends State<ChatScreen> {
             child: TextField(
               controller: _textController,
               onSubmitted: _handleSubmitted,
-              decoration: InputDecoration.collapsed(
-                  hintText: 'Send a message'),
+              decoration: InputDecoration.collapsed(hintText: 'Send a message'),
               focusNode: _focusNode,
             ),
           ),
@@ -104,11 +101,29 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'FriendlyChat'
-        ),
+        title: Text('FriendlyChat'),
       ),
-      body: _buildTextComposer(),
+      body: Column(
+        children: <Widget>[
+          Flexible(
+            child: ListView.builder(
+              itemBuilder: (_, int index) => _messages[index],
+              padding: EdgeInsets.all(8.8),
+              reverse: true,
+              itemCount: _messages.length,
+            ),
+          ),
+          Divider(
+            height: 1.0,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+            ),
+            child: _buildTextComposer(),
+          ),
+        ],
+      ),
     );
   }
 }
