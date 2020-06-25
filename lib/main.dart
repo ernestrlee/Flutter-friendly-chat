@@ -69,6 +69,7 @@ class _ChatScreenState extends State<ChatScreen> {
     setState(() {
       _messages.insert(0, message);
     });
+    _focusNode.requestFocus();
   }
 
   Widget _buildTextComposer() {
@@ -82,6 +83,7 @@ class _ChatScreenState extends State<ChatScreen> {
               onSubmitted: _handleSubmitted,
               decoration: InputDecoration.collapsed(
                   hintText: 'Send a message'),
+              focusNode: _focusNode,
             ),
           ),
           IconTheme(
