@@ -29,7 +29,7 @@ class FriendlyChatApp extends StatelessWidget {
       theme: defaultTargetPlatform == TargetPlatform.iOS
           ? kIOSTheme
           : kDefaultTheme,
-      home: ChatScreen(),
+      home: SafeArea(child: ChatScreen()),
     );
   }
 }
