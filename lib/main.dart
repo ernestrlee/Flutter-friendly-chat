@@ -42,11 +42,14 @@ class _ChatScreenState extends State<ChatScreen> {
                   hintText: 'Send a message'),
             ),
           ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 4.0),
-            child: IconButton(
-                icon: const Icon(Icons.send),
-                onPressed: () => _handleSubmitted(_textController.text)),
+          IconTheme(
+            data: IconThemeData(color: Theme.of(context).accentColor),
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 4.0),
+              child: IconButton(
+                  icon: const Icon(Icons.send),
+                  onPressed: () => _handleSubmitted(_textController.text)),
+            ),
           ),
         ],
       ),
