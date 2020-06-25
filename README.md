@@ -1,16 +1,23 @@
-# friendlychat
+# Friendly Chat
 
-A new Flutter application.
+Friendly Chat is a Flutter UI exercise from a Google code lab.
+This exercise demonstrates the use of widgets to build UI components
+using flutter.  The app is composed of a listview, textfield, and a button.
 
-## Getting Started
+The app uses state to control some of the UI components, such as
+disabling the send button if there is text in the textfield.
 
-This project is a starting point for a Flutter application.
+The app also uses themes to control the look and feel of the app as well as
+to display device specific UI for either iOS or Android.
 
-A few resources to get you started if this is your first Flutter project:
+Note: This is not a functional app.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Lessons learned
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- How to build basic UI using widgets
+- How to use iOS or Material themes for specific platforms
+- How to use basic animation
+- Using state to improve the behavior of UI components
+- Using themes to control the look of the application
+
+
