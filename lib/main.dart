@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(
@@ -139,7 +140,14 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 4.0),
-              child: IconButton(
+              child: Theme.of(context).platform == TargetPlatform.iOS
+                  ? CupertinoButton(
+                child: Text('Send'),
+                onPressed: _isComposing
+                    ? () => _handleSubmitted(_textController.text)
+                    : null,
+              )
+                  : IconButton(
                 icon: const Icon(Icons.send),
                 onPressed: _isComposing
                     ? () => _handleSubmitted(_textController.text)
